@@ -8,7 +8,7 @@ export default function Home() {
   const [results, setResults] = useState([]);
   const title = 'Movie Titles to Emojis'
   const description = 'Convert your favourite movie titles into emojis using the latest in AI technology!'
-  const keywords = ''
+  const keywords = 'OpenAI,emojis,AI Technology'
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -43,6 +43,7 @@ export default function Home() {
       <Head>
         <title>{title}</title>
         <meta name='description' content={description} />
+        <meta name='keywords' content={keywords} />
         <link rel="icon" href="/brand.png" />
       </Head>
 
@@ -53,26 +54,27 @@ export default function Home() {
           <input
             type="text"
             name="movie"
-            className="border border-cyan-500 focus:border-orange-500 rounded p-2 mb-6 text-xl w-96"
+            className="border border-cyan-500 focus:border-orange-500 focus:outline-none rounded p-2 mb-6 text-xl w-96"
             placeholder="Enter a movie title"
             value={titleInput}
             autoComplete='off'
             onChange={(e) => setTitleInput(e.target.value)}
           />
           <button type="submit" disabled={!titleInput.length} className='text-xl w-full bg-teal-400 disabled:bg-slate-400 text-white p-4 rounded text-center uppercase'>
-            {loading ? <div className="w-[24px] mx-auto"><Loading /></div> : "Generate emojis"}
+            {loading ? <div className="w-[28px] mx-auto"><Loading /></div> : "Generate emojis"}
           </button>
         </form>
-        <div className='flex flex-col-reverse gap-16'>
+        <div className='flex flex-col-reverse gap-16 mb-16'>
           {results.map((obj, index) => (
             <div className='text-center text-6xl' key={index}>
               {obj.data}
-              <p className="text-xl capitalize pt-4">{obj.label}</p>
+              <p className="text-2xl font-bold pt-6 opacity-80 uppercase">{obj.label}</p>
             </div>
           ))}
         </div> 
-        <div className="text-xl">
-          <p>{description}</p>
+        <div className="text-xl text-center">
+          <p className="mb-8">{description}</p>
+          <p>Created by <a href='https://mitch.gatsbyjs.io/' target='_blank' >Stephen</a></p>
         </div>
       </main>
     </div>
