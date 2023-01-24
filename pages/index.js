@@ -1,15 +1,17 @@
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
+import Loading from "../components/loading";
 
 export default function Home() {
   const [titleInput, setTitleInput] = useState("");
-  // const [result, setResult] = useState();
+  const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
   const title = 'Movie Titles to Emojis'
 
   async function onSubmit(event) {
     event.preventDefault();
+    setLoading(true)
     try {
       const response = await fetch("/api/generate", {
         method: "POST",
@@ -27,10 +29,11 @@ export default function Home() {
      // setResult(data.result);
       setResults([...results, {data: data.result, label: titleInput}]);
       setTitleInput("");
+      setLoading(false)
     } catch(error) {
       // Consider implementing your own error handling logic here
-      console.error(error);
-      alert(error.message);
+      console.error(error.message);
+      setLoading(false)
     }
   }
 
@@ -55,13 +58,14 @@ export default function Home() {
           />
           <input type="submit" value="Generate emojis" disabled={!titleInput.length} />
         </form>
+        {loading && <Loading />}
         <div className={styles.results}>
           {results.map((obj, index) => (
-          <div className={styles.result} key={index}>
-            {obj.data}
-            <p>{obj.label}</p>
-          </div>
-        ))}
+            <div className={styles.result} key={index}>
+              {obj.data}
+              <p>{obj.label}</p>
+            </div>
+          ))}
         </div> 
       </main>
     </div>
