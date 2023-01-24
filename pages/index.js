@@ -3,8 +3,10 @@ import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
-  const [result, setResult] = useState();
+  const [titleInput, setTitleInput] = useState("");
+  // const [result, setResult] = useState();
+  const [results, setResults] = useState([]);
+  const title = 'Movie Titles to Emojis'
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -14,7 +16,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ animal: animalInput }),
+        body: JSON.stringify({ movie: titleInput }),
       });
 
       const data = await response.json();
@@ -22,8 +24,9 @@ export default function Home() {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
 
-      setResult(data.result);
-      setAnimalInput("");
+     // setResult(data.result);
+      setResults([...results, {data: data.result, label: titleInput}]);
+      setTitleInput("");
     } catch(error) {
       // Consider implementing your own error handling logic here
       console.error(error);
@@ -34,24 +37,32 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
+        <title>{title}</title>
+        <link rel="icon" href="/popcorn.png" />
       </Head>
 
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <img src="/popcorn.png" className={styles.icon} />
+        <h1>{title}</h1>
         <form onSubmit={onSubmit}>
           <input
             type="text"
             name="animal"
-            placeholder="Enter an animal"
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
+            placeholder="Enter a movie title"
+            value={titleInput}
+            autoComplete='off'
+            onChange={(e) => setTitleInput(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input type="submit" value="Generate emojis" disabled={!titleInput.length} />
         </form>
-        <div className={styles.result}>{result}</div>
+        <div className={styles.results}>
+          {results.map((obj, index) => (
+          <div className={styles.result} key={index}>
+            {obj.data}
+            <p>{obj.label}</p>
+          </div>
+        ))}
+        </div> 
       </main>
     </div>
   );

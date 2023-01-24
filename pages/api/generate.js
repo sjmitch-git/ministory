@@ -15,11 +15,11 @@ export default async function (req, res) {
     return;
   }
 
-  const animal = req.body.animal || '';
-  if (animal.trim().length === 0) {
+  const movie = req.body.movie || '';
+  if (movie.trim().length === 0) {
     res.status(400).json({
       error: {
-        message: "Please enter a valid animal",
+        message: "Please enter a valid movie",
       }
     });
     return;
@@ -28,7 +28,7 @@ export default async function (req, res) {
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(animal),
+      prompt: generatePrompt(movie),
       temperature: 0.6,
     });
     res.status(200).json({ result: completion.data.choices[0].text });
@@ -48,15 +48,23 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(animal) {
-  const capitalizedAnimal =
-    animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for an animal that is a superhero.
+function generatePrompt(movie) {
+  const capitalizedInput = movie[0].toUpperCase() + movie.slice(1).toLowerCase();
 
-Animal: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-Animal: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-Animal: ${capitalizedAnimal}
-Names:`;
+  return `Convert movie titles into emoji.
+
+Movie: Back to the Future
+Emojis: 👨👴🚗🕒
+Movie: Batman
+Emojis: 🦇🤵
+Movie: Transformers
+Emojis: 🚗🤖
+Movie: 12 Angry Men
+Emojis: 🕛😡👨👨
+Movie: One Flew Over The Cuckoo's Nest
+Emojis: 1️🛫🐦🐣
+Movie: The Good, The Bad, And The Ugly
+Emojis:🤠🤬🤢
+Movie: ${capitalizedInput}
+Emojis:`;
 }
