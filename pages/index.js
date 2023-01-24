@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { useState } from "react";
-import styles from "./index.module.css";
 import Loading from "../components/loading";
 
 export default function Home() {
@@ -8,6 +7,8 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
   const title = 'Movie Titles to Emojis'
+  const description = 'Convert your favourite movie titles into emojis using the latest in AI technology!'
+  const keywords = ''
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -41,32 +42,38 @@ export default function Home() {
     <div>
       <Head>
         <title>{title}</title>
-        <link rel="icon" href="/popcorn.png" />
+        <meta name='description' content={description} />
+        <link rel="icon" href="/brand.png" />
       </Head>
 
-      <main className={styles.main}>
-        <img src="/popcorn.png" className={styles.icon} />
-        <h1>{title}</h1>
-        <form onSubmit={onSubmit}>
+      <main className='flex flex-col items-center p-16'>
+        <img src="/brand.png" className='w-[98px]' />
+        <h1 className="text-4xl my-12 opacity-80 font-bold">{title}</h1>
+        <form onSubmit={onSubmit} className='flex flex-col items-center mb-16 bg-slate-100 p-4 rounded'>
           <input
             type="text"
-            name="animal"
+            name="movie"
+            className="border border-cyan-500 focus:border-orange-500 rounded p-2 mb-6 text-xl w-96"
             placeholder="Enter a movie title"
             value={titleInput}
             autoComplete='off'
             onChange={(e) => setTitleInput(e.target.value)}
           />
-          <input type="submit" value="Generate emojis" disabled={!titleInput.length} />
+          <button type="submit" disabled={!titleInput.length} className='text-xl w-full bg-teal-400 disabled:bg-slate-400 text-white p-4 rounded text-center uppercase'>
+            {loading ? <div className="w-[24px] mx-auto"><Loading /></div> : "Generate emojis"}
+          </button>
         </form>
-        {loading && <Loading />}
-        <div className={styles.results}>
+        <div className='flex flex-col-reverse gap-16'>
           {results.map((obj, index) => (
-            <div className={styles.result} key={index}>
+            <div className='text-center text-6xl' key={index}>
               {obj.data}
-              <p>{obj.label}</p>
+              <p className="text-xl capitalize pt-4">{obj.label}</p>
             </div>
           ))}
         </div> 
+        <div className="text-xl">
+          <p>{description}</p>
+        </div>
       </main>
     </div>
   );
