@@ -9,6 +9,7 @@ const config = {
         title: title,
 		titleTemplate: `%s · ${title}`,
 		description: description,
+		url: 'https://movimoji.vercel.app',
 		githubRepo: 'https://github.com/sjmitch-git/movimoji',
 		author: process.env.NEXT_PUBLIC_AUTHOR_NAME || 'Stephen',
 		authorUrl: process.env.NEXT_PUBLIC_AUTHOR_URL || 'https://mitch.gatsbyjs.io/',
