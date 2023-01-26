@@ -1,0 +1,16 @@
+a:link {
+    @apply text-blue-500 underline underline-offset-8;
+}
+
+a:visited {
+    @apply text-current;
+}
+
+a:hover {
+    @apply opacity-70;
+}
+
+a:active,
+a.active {
+    @apply cursor-default;
+}

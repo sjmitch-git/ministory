@@ -1,3 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import './base/index.css';
+/* @import './variables/index.css'; */
+
+@import 'tailwindcss/components';
+/* @import './components/index.css'; */
+
+@import 'tailwindcss/utilities';
+/* @import './utilities/index.css'; */
+
+/* @import './custom/index.css'; */
