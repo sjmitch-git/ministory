@@ -49,7 +49,7 @@ const Search = () => {
             <input
                 type='text'
                 name='query'
-                className='border border-cyan-500 focus:border-orange-500 focus:outline-none rounded p-2 mb-6 text-xl md:w-96'
+                className='border border-cyan-500 focus:border-orange-500 focus:outline-none rounded p-2 text-xl md:w-96'
                 placeholder={placeholder}
                 value={queryInput}
                 autoComplete='off'
@@ -58,7 +58,8 @@ const Search = () => {
             <button
                 type='submit'
                 disabled={!queryInput.length}
-                className='text-xl w-full bg-teal-400 disabled:bg-slate-400 text-white p-3 rounded text-center uppercase'>
+                hidden={!queryInput.length}
+                className='text-xl w-full bg-teal-400 disabled:bg-slate-400 text-white mt-6 p-3 rounded text-center uppercase'>
                 {loading ? (
                     <div className='w-[28px] mx-auto'>
                         <Loading />
