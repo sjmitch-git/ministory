@@ -2,11 +2,11 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import config from '../../app.config'
 
-const SEO = ({ title, description, keywords, image }) => {
-	const {siteMetadata} = config
-	const {url} = siteMetadata
+const SEO = ({ title, description, keywords, img }) => {
+	const {image, url} = config.siteMetadata
 	const router = useRouter()
 	const path = url + router.asPath
+	const imgSrc = url + img
 
 	return (
 		<Head>
@@ -37,20 +37,21 @@ const SEO = ({ title, description, keywords, image }) => {
 			/>
 			<meta
 				name='image'
-				content={image}
+				content={imgSrc}
 			/>
 			<meta
 				property='og:image'
-				content={image}
+				content={imgSrc}
 			/>
 			<meta
 				property='og:image:secure_url'
-				content={image}
+				content={imgSrc}
 			/>
 			<meta
 				name='twitter:image'
-				content={image}
+				content={imgSrc}
 			/>
+			<link rel="icon" href={image} />
 			<link
 				href={path}
 				rel='canonical'></link>

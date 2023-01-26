@@ -6,11 +6,11 @@ import config from '../app.config'
 
 export default function Home() {
 
-	const {title, description, keywords, name, image} = config.siteMetadata
+	const {title, description, keywords, name, img} = config.siteMetadata
 
 	return (
 		<>
-			<SEO title={`${title} | ${name}`} description={description} keywords={keywords} image={image} />
+			<SEO title={`${title} | ${name}`} description={description} keywords={keywords} image={img} />
 			<div className='flex flex-col items-center'>
 				<Pagetitle title={title} />
 				<Search />
