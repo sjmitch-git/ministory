@@ -15,11 +15,11 @@ export default async function (req, res) {
 		return
 	}
 
-	const movie = req.body.movie || ''
-	if (movie.trim().length === 0) {
+	const query = req.body.query || ''
+	if (query.trim().length === 0) {
 		res.status(400).json({
 			error: {
-				message: 'Please enter a valid movie',
+				message: 'Please enter a valid query',
 			},
 		})
 		return
@@ -28,7 +28,7 @@ export default async function (req, res) {
 	try {
 		const completion = await openai.createCompletion({
 			model: 'text-davinci-003',
-			prompt: generatePrompt(movie),
+			prompt: generatePrompt(query),
 			temperature: 0.6,
 		})
 		res.status(200).json({ result: completion.data.choices[0].text })
@@ -48,8 +48,8 @@ export default async function (req, res) {
 	}
 }
 
-function generatePrompt(movie) {
-	const capitalizedInput = movie[0].toUpperCase() + movie.slice(1).toLowerCase()
+function generatePrompt(query) {
+	const capitalizedInput = query[0].toUpperCase() + query.slice(1).toLowerCase()
 
 	return `Convert movie titles into emoji.
 
