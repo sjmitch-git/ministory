@@ -7,6 +7,7 @@
         "eslint:recommended",
         "plugin:react/recommended",
         "next/core-web-vitals",
+        "jest-dom",
         "prettier"
     ],
     "overrides": [

@@ -7,6 +7,8 @@
 		"build": "next build",
 		"start": "next start",
 		"format": "prettier --write .",
+		"test": "jest --watch",
+		"coverage": "jest --coverage",
 		"lint": "eslint . --fix --max-warnings=0",
 		"prepare": "husky install"
 	},
