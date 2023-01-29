@@ -1,8 +1,29 @@
 import { render, screen } from '@testing-library/react'
 import Header from './Header.jsx'
+import config from '../../app.config'
+
+const { image, name } = config.siteMetadata
 
 describe('Header tests', () => {
-	it('renders', () => {
+	beforeEach(() => {
 		render(<Header />)
+	})
+
+	it('renders', () => {})
+
+	it('has image width', () => {
+		expect(screen.queryByTestId('image')).toHaveAttribute('width')
+	})
+
+	it('has image height', () => {
+		expect(screen.queryByTestId('image')).toHaveAttribute('height')
+	})
+
+	it('has image alt', () => {
+		expect(screen.queryByTestId('image')).toHaveAttribute('alt')
+	})
+
+	it('uses custom text for app name', () => {
+		expect(screen.queryByTestId('name')).toHaveTextContent(name)
 	})
 })
