@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import Layout from './Layout.jsx';
+import { render, screen } from '@testing-library/react'
+import Layout from './Layout.jsx'
 
 describe('Layout tests', () => {
-    it('renders', () => {
-        render(<Layout />);
-    });
-});
+	it('renders', () => {
+		render(<Layout />)
+	})
+})

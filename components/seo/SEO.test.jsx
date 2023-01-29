@@ -1,13 +1,13 @@
-import { render, screen } from '@testing-library/react';
-import * as nextRouter from 'next/router';
+import { render, screen } from '@testing-library/react'
+import * as nextRouter from 'next/router'
 
-import SEO from './SEO.jsx';
+import SEO from './SEO.jsx'
 
-nextRouter.useRouter = jest.fn();
-nextRouter.useRouter.mockImplementation(() => ({ route: '/' }));
+nextRouter.useRouter = jest.fn()
+nextRouter.useRouter.mockImplementation(() => ({ route: '/' }))
 
 describe('SEO tests', () => {
-    it('renders', () => {
-        render(<SEO />);
-    });
-});
+	it('renders', () => {
+		render(<SEO />)
+	})
+})

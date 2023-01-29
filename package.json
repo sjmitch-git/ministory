@@ -9,7 +9,8 @@
 		"format": "prettier --write .",
 		"test": "jest --watch",
 		"coverage": "jest --coverage",
-		"lint": "eslint . --fix --max-warnings=0",
+		"lint": "next lint",
+		"lint:write": "next lint --cache --fix",
 		"prepare": "husky install"
 	},
 	"dependencies": {
@@ -29,6 +30,7 @@
 		"@types/react": "^18.0.27",
 		"autoprefixer": "^10.4.13",
 		"eslint": "^8.32.0",
+		"eslint-config-next": "^13.1.6",
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-plugin-jest": "^27.2.1",
 		"eslint-plugin-react": "^7.32.1",
@@ -41,7 +43,6 @@
 		"tailwindcss": "^3.2.4"
 	},
 	"lint-staged": {
-		"*.jsx": "eslint --cache --fix",
 		"*.{js,jsx,css,md}": "prettier --write"
 	}
 }

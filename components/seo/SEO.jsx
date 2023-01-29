@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import config from '../../app.config'
 
 const SEO = ({ title, description, keywords, img }) => {
-	const {image, url} = config.siteMetadata
+	const { image, url } = config.siteMetadata
 	const router = useRouter()
 	const path = url + router.asPath
 	const imgSrc = url + img
@@ -51,7 +51,10 @@ const SEO = ({ title, description, keywords, img }) => {
 				name='twitter:image'
 				content={imgSrc}
 			/>
-			<link rel="icon" href={image} />
+			<link
+				rel='icon'
+				href={image}
+			/>
 			<link
 				href={path}
 				rel='canonical'></link>

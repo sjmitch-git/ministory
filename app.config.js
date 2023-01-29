@@ -6,7 +6,7 @@ const description = 'Convert your favourite movie titles into emojis using the l
 const config = {
 	siteMetadata: {
 		name: name,
-        title: title,
+		title: title,
 		titleTemplate: `%s · ${title}`,
 		description: description,
 		url: 'https://movimoji.vercel.app',
@@ -16,16 +16,7 @@ const config = {
 		authorTwitter: process.env.NEXT_PUBLIC_AUTHOR_TWITTER || 'yourTwitterHandle',
 		image: '/brand.png',
 		siteLanguage: `en`,
-		keywords: [
-            'OpenAI',
-            'emojis',
-            'AI Technology',
-			'TailwindCSS',
-			'jsx',
-			'Next.js',
-			'ReactJS',
-			'Cypress',
-		],
+		keywords: ['OpenAI', 'emojis', 'AI Technology', 'TailwindCSS', 'jsx', 'Next.js', 'ReactJS', 'Cypress'],
 	},
 	siteLinks: [],
 	manifest_options: {

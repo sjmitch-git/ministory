@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import Loading from './Loading.jsx';
+import { render, screen } from '@testing-library/react'
+import Loading from './Loading.jsx'
 
 describe('Loading tests', () => {
-    it('renders', () => {
-        render(<Loading />);
-    });
-});
+	it('renders', () => {
+		render(<Loading />)
+	})
+})
