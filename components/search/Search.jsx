@@ -57,12 +57,14 @@ const Search = () => {
 					placeholder={placeholder}
 					value={queryInput}
 					autoComplete='off'
+					data-testid='queryinput'
 					onChange={(e) => setQueryInput(e.target.value)}
 				/>
 				<button
 					type='submit'
 					disabled={!queryInput.length}
 					hidden={!queryInput.length}
+					data-testid='button'
 					className='mt-6 w-full rounded bg-teal-400 p-3 text-center text-xl uppercase text-white disabled:bg-slate-400'>
 					{loading ? (
 						<div className='mx-auto w-[28px]'>
