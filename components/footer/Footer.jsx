@@ -10,6 +10,7 @@ const Footer = () => {
 				Created by{' '}
 				<a
 					href={authorUrl}
+					rel='noreferrer'
 					target='_blank'>
 					{author}
 				</a>
