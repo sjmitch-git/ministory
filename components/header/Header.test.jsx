@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import Header from './Header.jsx'
 import config from '../../app.config'
 
-const { image, name } = config.siteMetadata
+const { name } = config.siteMetadata
 
 describe('Header tests', () => {
 	beforeEach(() => {

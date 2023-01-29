@@ -8,7 +8,9 @@ describe('Error tests', () => {
 	beforeEach(() => {
 		render(<Error message={message} />)
 	})
+
 	it('renders', () => {})
+
 	it('uses custom text for the heading label', () => {
 		expect(screen.queryByTestId('heading')).toHaveTextContent(heading)
 	})

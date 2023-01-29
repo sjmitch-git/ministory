@@ -4,7 +4,9 @@ import config from '../../app.config'
 const Header = () => {
 	const { image, name } = config.siteMetadata
 	return (
-		<header className='flex flex-col items-center justify-center gap-4 p-8'>
+		<header
+			className='flex flex-col items-center justify-center gap-4 p-8'
+			data-testid='header'>
 			<Image
 				src={image}
 				height='98'
