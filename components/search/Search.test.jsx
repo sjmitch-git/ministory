@@ -21,8 +21,4 @@ describe('Search tests', () => {
 	it('should have input with placeholder text', () => {
 		expect(screen.queryByTestId('queryinput')).toHaveAttribute('placeholder', placeholder)
 	})
-
-	/* it('has input with placeholder text', () => {
-		expect(screen.queryByTestId('queryInput')).not.toHaveValue()
-	}) */
 })
