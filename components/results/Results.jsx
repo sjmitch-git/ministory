@@ -6,13 +6,13 @@ const Results = () => {
 	const { results } = useContext(GlobalContext)
 
 	return (
-		<div className='flex flex-col-reverse gap-16 mb-8'>
+		<div className='mb-8 flex flex-col-reverse gap-16'>
 			{results.map((obj, index) => (
 				<div
 					className='text-center text-4xl md:text-6xl'
 					key={index}>
 					{obj.data}
-					<p className='text-2xl font-bold pt-6 opacity-80 uppercase'>{obj.label}</p>
+					<p className='pt-6 text-2xl font-bold uppercase opacity-80'>{obj.label}</p>
 				</div>
 			))}
 		</div>

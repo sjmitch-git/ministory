@@ -43,17 +43,17 @@ const Search = () => {
 	return (
 		<>
 			{error && (
-				<div className='w-full mb-8'>
+				<div className='mb-8 w-full'>
 					<Error message={error} />
 				</div>
 			)}
 			<form
 				onSubmit={onSubmit}
-				className='flex flex-col items-center mb-16 bg-slate-100 p-4 rounded'>
+				className='mb-16 flex flex-col items-center rounded bg-slate-100 p-4'>
 				<input
 					type='text'
 					name='query'
-					className='border border-cyan-500 focus:border-orange-500 focus:outline-none rounded p-2 text-xl md:w-96'
+					className='rounded border border-cyan-500 p-2 text-xl focus:border-orange-500 focus:outline-none md:w-96'
 					placeholder={placeholder}
 					value={queryInput}
 					autoComplete='off'
@@ -63,9 +63,9 @@ const Search = () => {
 					type='submit'
 					disabled={!queryInput.length}
 					hidden={!queryInput.length}
-					className='text-xl w-full bg-teal-400 disabled:bg-slate-400 text-white mt-6 p-3 rounded text-center uppercase'>
+					className='mt-6 w-full rounded bg-teal-400 p-3 text-center text-xl uppercase text-white disabled:bg-slate-400'>
 					{loading ? (
-						<div className='w-[28px] mx-auto'>
+						<div className='mx-auto w-[28px]'>
 							<Loading />
 						</div>
 					) : (

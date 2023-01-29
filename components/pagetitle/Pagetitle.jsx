@@ -1,5 +1,5 @@
 const Pagetitle = ({ title }) => {
-	return <h1 className='text-2xl md:text-4xl mb-12 opacity-80 font-bold text-center'>{title}</h1>
+	return <h1 className='mb-12 text-center text-2xl font-bold opacity-80 md:text-4xl'>{title}</h1>
 }
 
 export default Pagetitle
