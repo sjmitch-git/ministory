@@ -28,15 +28,13 @@ export default async function generate(req, res) {
 	try {
 		const completion = await openai.createCompletion({
 			model: 'text-davinci-003',
-			prompt: `Topic: Breakfast\nTwo-Sentence Horror Story: He always stops crying when I pour the milk on his cereal. I just have to remember not to let him see his face on the carton.\n    \nTopic: ${query}\nThree-Sentence Horror Story:`,
-			// prompt: generatePrompt(query),
+			prompt: generatePrompt(query),
 			temperature: 0.8,
 			max_tokens: 60,
 			top_p: 1.0,
 			frequency_penalty: 0.5,
 			presence_penalty: 0.0,
 		})
-		console.log(completion.data.choices)
 		res.status(200).json({ result: completion.data.choices[0].text })
 	} catch (error) {
 		if (error.response) {
@@ -53,14 +51,7 @@ export default async function generate(req, res) {
 	}
 }
 
-/* function generatePrompt(query) {
-	const capitalizedInput = query[0].toUpperCase() + query.slice(1).toLowerCase()
-
-	return `
-Topic: Breakfast
-Two-Sentence Horror Story: He always stops crying when I pour the milk on his cereal. I just have to remember not to let him see his face on the carton.
-    
-Topic: ${capitalizedInput}
-Two-Sentence Horror Story:
-`
-} */
+function generatePrompt(query) {
+	return `Topic: ${query}
+Three-Sentence Horror Story:`
+}

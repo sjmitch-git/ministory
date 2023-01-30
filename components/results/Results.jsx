@@ -8,22 +8,23 @@ const Results = () => {
 	return (
 		<div
 			className='mb-8 flex flex-col-reverse gap-16'
+			id='results'
 			data-testid='results'>
 			{results &&
 				results.map((obj, index) => (
 					<div
-						className='max-w-2xl text-center font-serif text-2xl md:text-3xl'
+						className='max-w-2xl px-4 text-center text-2xl md:text-3xl'
 						key={index}>
-						<span
-							data-testid='data'
-							className='tracking-widest'>
-							{obj.data}
-						</span>
 						<p
-							className='pt-6 text-2xl font-bold uppercase opacity-80'
+							className='py-6 text-2xl font-bold uppercase tracking-wide opacity-60'
 							data-testid='label'>
 							{obj.label}
 						</p>
+						<span
+							data-testid='data'
+							className='font-serif tracking-widest'>
+							{obj.data}
+						</span>
 					</div>
 				))}
 		</div>
