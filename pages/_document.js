@@ -7,6 +7,20 @@ export default function Document() {
 	return (
 		<Html lang='en'>
 			<Head>
+				{/* Global Site Tag (gtag.js) - Google Analytics */}
+				<script
+					async
+					src='https://www.googletagmanager.com/gtag/js?id=G-QT3FN23VMG'></script>
+				{/* prettier-ignore */}
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments)}
+                        gtag('js', new Date());
+
+                        gtag('config', 'G-QT3FN23VMG');`,
+					}}
+				/>
 				<meta
 					property='og:image:width'
 					content='1200'
