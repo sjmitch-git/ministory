@@ -1,5 +1,8 @@
 {
 	"name": "MoviMoji",
+	"short_name": "MoviMoji",
+	"description": "Convert your favourite movie titles into emojis using the latest in AI technology",
+	"scope": "/",
 	"start_url": "/",
 	"display": "standalone",
 	"orientation": "portrait",

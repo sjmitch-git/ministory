@@ -128,7 +128,8 @@ export default function Document() {
 				/>
 				<meta
 					name='theme-color'
-					content='#ffffff'></meta>
+					content='#ffffff'
+				/>
 			</Head>
 			<body>
 				<Main />
