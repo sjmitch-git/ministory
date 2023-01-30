@@ -13,7 +13,7 @@ const Results = () => {
 			{results &&
 				results.map((obj, index) => (
 					<div
-						className='max-w-2xl px-4 text-center text-2xl md:text-3xl'
+						className='max-w-2xl px-4 text-2xl md:text-3xl'
 						key={index}>
 						<p
 							className='py-6 text-2xl font-bold uppercase tracking-wide opacity-60'

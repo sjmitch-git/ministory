@@ -5,8 +5,8 @@ import GlobalContext from '../../contexts/globalContext'
 
 const mockResults = [
 	{
-		data: '🦇🤵',
-		label: 'batman',
+		data: 'The wind was howling around the house, rattling windows and doors.',
+		label: 'wind',
 	},
 ]
 
@@ -22,7 +22,7 @@ describe('Results tests', () => {
 
 	it('renders', () => {})
 
-	it('returns correct emojis', () => {
+	it('returns correct data', () => {
 		expect(screen.queryByTestId('data')).toHaveTextContent(mockResults[0].data)
 	})
 
