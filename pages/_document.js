@@ -10,7 +10,7 @@ export default function Document() {
 				{/* Global Site Tag (gtag.js) - Google Analytics */}
 				<script
 					async
-					src='https://www.googletagmanager.com/gtag/js?id=G-QT3FN23VMG'></script>
+					src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}></script>
 				{/* prettier-ignore */}
 				<script
 					dangerouslySetInnerHTML={{
@@ -18,7 +18,7 @@ export default function Document() {
                         function gtag(){dataLayer.push(arguments)}
                         gtag('js', new Date());
 
-                        gtag('config', 'G-QT3FN23VMG');`,
+                        gtag('config', ${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS});`,
 					}}
 				/>
 				<meta
