@@ -28,9 +28,15 @@ export default async function generate(req, res) {
 	try {
 		const completion = await openai.createCompletion({
 			model: 'text-davinci-003',
-			prompt: generatePrompt(query),
-			temperature: 0.6,
+			prompt: `Topic: Breakfast\nTwo-Sentence Horror Story: He always stops crying when I pour the milk on his cereal. I just have to remember not to let him see his face on the carton.\n    \nTopic: ${query}\nThree-Sentence Horror Story:`,
+			// prompt: generatePrompt(query),
+			temperature: 0.8,
+			max_tokens: 60,
+			top_p: 1.0,
+			frequency_penalty: 0.5,
+			presence_penalty: 0.0,
 		})
+		console.log(completion.data.choices)
 		res.status(200).json({ result: completion.data.choices[0].text })
 	} catch (error) {
 		if (error.response) {
@@ -47,23 +53,14 @@ export default async function generate(req, res) {
 	}
 }
 
-function generatePrompt(query) {
+/* function generatePrompt(query) {
 	const capitalizedInput = query[0].toUpperCase() + query.slice(1).toLowerCase()
 
-	return `Convert movie titles into emoji.
-
-Movie: Back to the Future
-Emojis: 👨👴🚗🕒
-Movie: Batman
-Emojis: 🦇🤵
-Movie: Transformers
-Emojis: 🚗🤖
-Movie: 12 Angry Men
-Emojis: 🕛😡👨👨
-Movie: One Flew Over The Cuckoo's Nest
-Emojis: 1️🛫🐦🐣
-Movie: The Good, The Bad, And The Ugly
-Emojis:🤠🤬🤢
-Movie: ${capitalizedInput}
-Emojis:`
-}
+	return `
+Topic: Breakfast
+Two-Sentence Horror Story: He always stops crying when I pour the milk on his cereal. I just have to remember not to let him see his face on the carton.
+    
+Topic: ${capitalizedInput}
+Two-Sentence Horror Story:
+`
+} */

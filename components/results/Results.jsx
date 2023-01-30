@@ -12,9 +12,13 @@ const Results = () => {
 			{results &&
 				results.map((obj, index) => (
 					<div
-						className='text-center text-4xl md:text-6xl'
+						className='max-w-2xl text-center font-serif text-2xl md:text-3xl'
 						key={index}>
-						<span data-testid='data'>{obj.data}</span>
+						<span
+							data-testid='data'
+							className='tracking-widest'>
+							{obj.data}
+						</span>
 						<p
 							className='pt-6 text-2xl font-bold uppercase opacity-80'
 							data-testid='label'>

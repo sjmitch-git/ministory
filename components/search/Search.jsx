@@ -10,8 +10,8 @@ const Search = () => {
 	const [error, setError] = useState(false)
 	const { results, setResults } = useContext(GlobalContext)
 
-	const submitLabel = 'Generate emojis'
-	const placeholder = 'Enter a movie title'
+	const submitLabel = 'Create!'
+	const placeholder = 'Enter a topic for your story'
 
 	async function onSubmit(event) {
 		event.preventDefault()
@@ -31,7 +31,9 @@ const Search = () => {
 				throw data.error || new Error(`Request failed with status ${response.status}`)
 			}
 
-			setResults([...results, { data: data.result, label: queryInput }])
+			if (!data.result.endsWith('.') && !data.result.endsWith('?') && !data.result.endsWith(','))
+				data.result = data.result + '...'
+			setResults([{ data: data.result, label: queryInput }])
 			setQueryInput('')
 			setLoading(false)
 		} catch (error) {
@@ -49,11 +51,11 @@ const Search = () => {
 			)}
 			<form
 				onSubmit={onSubmit}
-				className='mb-16 flex flex-col items-center rounded bg-slate-100 p-4'>
+				className='mb-16 flex flex-col items-center rounded bg-slate-800 p-2'>
 				<input
 					type='text'
 					name='query'
-					className='rounded border border-cyan-500 p-2 text-xl focus:border-orange-500 focus:outline-none md:w-96'
+					className='rounded border border-purple-500 bg-black p-2 text-xl focus:border-pink-500 focus:outline-none md:w-96'
 					placeholder={placeholder}
 					value={queryInput}
 					autoComplete='off'
@@ -65,7 +67,7 @@ const Search = () => {
 					disabled={!queryInput.length}
 					hidden={!queryInput.length}
 					data-testid='button'
-					className='mt-6 w-full rounded bg-teal-400 p-3 text-center text-xl uppercase text-white disabled:bg-slate-400'>
+					className='mt-6 w-full rounded bg-purple-600 p-3 text-center text-xl uppercase text-white disabled:bg-slate-400'>
 					{loading ? (
 						<div className='mx-auto w-[28px]'>
 							<Loading />
