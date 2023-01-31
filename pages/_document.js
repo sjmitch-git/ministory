@@ -9,7 +9,7 @@ export default function Document() {
 			<Head>
 				{/* Global Site Tag (gtag.js) - Google Analytics */}
 				<script
-					async
+					defer
 					src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}></script>
 				{/* prettier-ignore */}
 				<script
