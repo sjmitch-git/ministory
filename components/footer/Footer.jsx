@@ -6,7 +6,7 @@ const Footer = () => {
 		<footer
 			className='flex flex-col items-center justify-center gap-4 bg-gradient-to-t from-slate-900 pb-8 md:p-8'
 			data-testid='footer'>
-			<hr className='w-full md:max-w-2xl' />
+			<hr className='w-full md:max-w-3xl' />
 			<p
 				className='my-8 px-4 text-center md:text-xl'
 				data-testid='description'>

@@ -13,16 +13,16 @@ const Results = () => {
 			{results &&
 				results.map((obj, index) => (
 					<div
-						className='max-w-2xl px-4 text-2xl md:text-3xl'
+						className='max-w-3xl px-2 md:px-4 '
 						key={index}>
 						<p
-							className='py-6 text-2xl font-bold uppercase tracking-wide opacity-60'
+							className='py-6 text-3xl font-bold uppercase tracking-wide opacity-60 md:text-4xl'
 							data-testid='label'>
 							{obj.label}
 						</p>
 						<span
 							data-testid='data'
-							className='font-serif tracking-widest'>
+							className='font-mono text-lg tracking-widest opacity-80 md:text-xl lg:text-2xl'>
 							{obj.data}
 						</span>
 					</div>

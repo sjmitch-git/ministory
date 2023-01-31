@@ -46,7 +46,7 @@ const Search = () => {
 				!data.result.endsWith('?') &&
 				!data.result.endsWith(',') &&
 				!data.result.endsWith('!') &&
-				!data.result.endsWith('."')
+				!data.result.endsWith('"')
 			) {
 				data.result = data.result + '...'
 			}
