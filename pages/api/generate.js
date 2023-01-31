@@ -30,7 +30,7 @@ export default async function generate(req, res) {
 			model: 'text-davinci-003',
 			prompt: generatePrompt(query),
 			temperature: 0.8,
-			max_tokens: 60,
+			max_tokens: 80,
 			top_p: 1.0,
 			frequency_penalty: 0.5,
 			presence_penalty: 0.0,
@@ -38,10 +38,10 @@ export default async function generate(req, res) {
 		res.status(200).json({ result: completion.data.choices[0].text })
 	} catch (error) {
 		if (error.response) {
-			console.error(error.response.status, error.response.data)
+			// console.error(error.response.status, error.response.data)
 			res.status(error.response.status).json(error.response.data)
 		} else {
-			console.error(`Error with OpenAI API request: ${error.message}`)
+			// console.error(`Error with OpenAI API request: ${error.message}`)
 			res.status(500).json({
 				error: {
 					message: 'An error occurred during your request.',
@@ -53,5 +53,5 @@ export default async function generate(req, res) {
 
 function generatePrompt(query) {
 	return `Topic: ${query}
-Three-Sentence Horror Story:`
+One-Paragraph Horror Story:`
 }

@@ -1,5 +1,5 @@
 // set default app config
-const name = 'MicroHorror'
+const name = 'Micro-Horror'
 const title = 'Create a horror story'
 const description = 'Create a short horror story using the latest in AI technology.'
 

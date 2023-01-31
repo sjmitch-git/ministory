@@ -1,14 +1,17 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useRef } from 'react'
 
 import GlobalContext from '../../contexts/globalContext'
 import Loading from '../../components/loading'
 import Error from '../../components/error'
 
+import * as ga from '../../lib/ga'
+
 const Search = () => {
 	const [queryInput, setQueryInput] = useState('')
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState(false)
-	const { results, setResults } = useContext(GlobalContext)
+	const { setResults } = useContext(GlobalContext)
+	const inputElement = useRef()
 
 	const submitLabel = 'Create!'
 	const placeholder = 'Enter a topic for your story'
@@ -22,6 +25,8 @@ const Search = () => {
 		event.preventDefault()
 		setError(false)
 		setLoading(true)
+		inputElement.current.blur()
+
 		try {
 			const response = await fetch('/api/generate', {
 				method: 'POST',
@@ -40,10 +45,14 @@ const Search = () => {
 				!data.result.endsWith('.') &&
 				!data.result.endsWith('?') &&
 				!data.result.endsWith(',') &&
+				!data.result.endsWith('!') &&
 				!data.result.endsWith('."')
-			)
+			) {
 				data.result = data.result + '...'
+			}
+
 			setResults([{ data: data.result, label: queryInput }])
+			ga.sendevent('Query Search', { data: data.result, label: queryInput })
 			setQueryInput('')
 			setLoading(false)
 			setTimeout(() => {
@@ -75,6 +84,7 @@ const Search = () => {
 					autoComplete='off'
 					data-testid='queryinput'
 					onFocus={() => scrollTo('searchform')}
+					ref={inputElement}
 					onChange={(e) => setQueryInput(e.target.value)}
 				/>
 				<button
