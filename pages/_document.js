@@ -39,7 +39,7 @@ export default function Document() {
 				/>
 				<meta
 					name='twitter:card'
-					content='summary_large_image'
+					content='summary'
 				/>
 				<meta
 					name='author'
