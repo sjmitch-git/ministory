@@ -18,11 +18,6 @@ const Search = () => {
 	const submitLabel = 'Create!'
 	const placeholder = 'Enter a topic for your story'
 
-	/* const scrollTo = (id) => {
-		let el = document.getElementById(id)
-		el.scrollIntoView({ behavior: 'smooth' }, true)
-	} */
-
 	async function onSubmit(event) {
 		event.preventDefault()
 		setError(false)
