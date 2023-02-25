@@ -1,5 +1,5 @@
 // set default app config
-const name = 'Mini Story'
+const name = 'Micro Story'
 const title = 'Create a short story'
 const description = 'Create a short story using the latest in AI technology.'
 
@@ -9,14 +9,14 @@ const config = {
 		title: title,
 		titleTemplate: `%s · ${title}`,
 		description: description,
-		url: 'https://ministory.vercel.app',
+		url: 'https://microstory.vercel.app',
 		githubRepo: 'https://github.com/sjmitch-git/ministory',
 		author: process.env.NEXT_PUBLIC_AUTHOR_NAME || 'Stephen',
 		authorUrl: process.env.NEXT_PUBLIC_AUTHOR_URL || 'https://mitch.gatsbyjs.io/',
 		authorTwitter: process.env.NEXT_PUBLIC_AUTHOR_TWITTER || 'yourTwitterHandle',
 		image: '/brand.png',
 		siteLanguage: `en`,
-		keywords: ['OpenAI', 'Horror', 'AI Technology', 'TailwindCSS', 'jsx', 'Next.js', 'ReactJS', 'Jest'],
+		keywords: ['OpenAI', 'Story Generator', 'AI Technology', 'TailwindCSS', 'jsx', 'Next.js', 'ReactJS', 'Jest'],
 	},
 	siteLinks: [],
 	manifest_options: {
