@@ -4,7 +4,7 @@ const Footer = () => {
 	const { author, description, authorUrl } = config.siteMetadata
 	return (
 		<footer
-			className='flex flex-col items-center justify-center gap-4 bg-gradient-to-t from-slate-900 pb-8 md:p-8'
+			className='flex flex-col items-center justify-center gap-4 pb-8 md:p-8'
 			data-testid='footer'>
 			<hr className='w-full md:max-w-3xl' />
 			<p

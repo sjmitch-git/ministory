@@ -16,6 +16,8 @@ export default async function generate(req, res) {
 	}
 
 	const query = req.body.query || ''
+	const genre = req.body.genre || ''
+
 	if (query.trim().length === 0) {
 		res.status(400).json({
 			error: {
@@ -28,7 +30,7 @@ export default async function generate(req, res) {
 	try {
 		const completion = await openai.createCompletion({
 			model: 'text-davinci-003',
-			prompt: generatePrompt(query),
+			prompt: generatePrompt(query, genre),
 			temperature: 0.8,
 			max_tokens: 100,
 			top_p: 1.0,
@@ -38,10 +40,8 @@ export default async function generate(req, res) {
 		res.status(200).json({ result: completion.data.choices[0].text })
 	} catch (error) {
 		if (error.response) {
-			// console.error(error.response.status, error.response.data)
 			res.status(error.response.status).json(error.response.data)
 		} else {
-			// console.error(`Error with OpenAI API request: ${error.message}`)
 			res.status(500).json({
 				error: {
 					message: 'An error occurred during your request.',
@@ -51,7 +51,7 @@ export default async function generate(req, res) {
 	}
 }
 
-function generatePrompt(query) {
+function generatePrompt(query, genre) {
 	return `Topic: ${query}
-One-Paragraph Horror Story:`
+One-Paragraph ${genre} Story:`
 }

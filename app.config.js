@@ -1,7 +1,7 @@
 // set default app config
-const name = 'Micro-Horror'
-const title = 'Create a horror story'
-const description = 'Create a short horror story using the latest in AI technology.'
+const name = 'Mini Story'
+const title = 'Create a short story'
+const description = 'Create a short story using the latest in AI technology.'
 
 const config = {
 	siteMetadata: {
@@ -9,8 +9,8 @@ const config = {
 		title: title,
 		titleTemplate: `%s · ${title}`,
 		description: description,
-		url: 'https://microhorror.vercel.app',
-		githubRepo: 'https://github.com/sjmitch-git/microhorror',
+		url: 'https://ministory.vercel.app',
+		githubRepo: 'https://github.com/sjmitch-git/ministory',
 		author: process.env.NEXT_PUBLIC_AUTHOR_NAME || 'Stephen',
 		authorUrl: process.env.NEXT_PUBLIC_AUTHOR_URL || 'https://mitch.gatsbyjs.io/',
 		authorTwitter: process.env.NEXT_PUBLIC_AUTHOR_TWITTER || 'yourTwitterHandle',

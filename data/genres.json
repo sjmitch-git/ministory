@@ -1,0 +1,13 @@
+[
+	{ "value": "crime", "label": "Crime" },
+	{ "value": "comedy", "label": "Comedy" },
+	{ "value": "fantasy", "label": "Fantasy" },
+	{ "value": "historical fiction", "label": "Historical" },
+	{ "value": "horror", "label": "Horror" },
+	{ "value": "mystery", "label": "Mystery" },
+	{ "value": "realistic fiction", "label": "Realism" },
+	{ "value": "romance", "label": "Romance" },
+	{ "value": "superhero", "label": "Superhero" },
+	{ "value": "sci-fi", "label": "Sci-fi" },
+	{ "value": "thriller", "label": "Thriller" }
+]
