@@ -2,6 +2,7 @@ import Search from '../components/search'
 import Results from '../components/results'
 import Pagetitle from '../components/pagetitle'
 import SEO from '../components/seo'
+import Actions from '../components/actions'
 import config from '../app.config'
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
 				<Pagetitle title={title} />
 				<Search />
 				<Results />
+				<Actions />
 			</div>
 		</>
 	)

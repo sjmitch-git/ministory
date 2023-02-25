@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import config from '../../app.config'
 
+import Navigation from '../navigation'
+
 const Header = () => {
 	const { image, name } = config.siteMetadata
 	return (
@@ -20,6 +22,7 @@ const Header = () => {
 				data-testid='name'>
 				{name}
 			</h3>
+			<Navigation />
 		</header>
 	)
 }

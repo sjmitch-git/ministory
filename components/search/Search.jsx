@@ -51,7 +51,7 @@ const Search = () => {
 				data.result = data.result + '...'
 			}
 
-			setResults([{ data: data.result, label: queryInput }])
+			setResults([{ data: data.result, label: queryInput, genre: selectGenre }])
 			ga.sendevent('Query Search', { data: data.result, label: queryInput })
 			//setQueryInput('')
 			setLoading(false)
