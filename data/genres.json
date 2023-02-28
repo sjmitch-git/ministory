@@ -1,4 +1,5 @@
 [
+	{ "value": "adventure", "label": "Adventure" },
 	{ "value": "crime", "label": "Crime" },
 	{ "value": "comedy", "label": "Comedy" },
 	{ "value": "fantasy", "label": "Fantasy" },
@@ -9,5 +10,6 @@
 	{ "value": "romance", "label": "Romance" },
 	{ "value": "superhero", "label": "Superhero" },
 	{ "value": "sci-fi", "label": "Sci-fi" },
-	{ "value": "thriller", "label": "Thriller" }
+	{ "value": "thriller", "label": "Thriller" },
+	{ "value": "war", "label": "War" }
 ]

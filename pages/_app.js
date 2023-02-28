@@ -9,7 +9,8 @@ import '../styles/index.css'
 
 export default function App({ Component, pageProps }) {
 	const [results, setResults] = useState([])
-	const contextValues = { results, setResults }
+	const [saved, setSaved] = useState([])
+	const contextValues = { results, setResults, saved, setSaved }
 
 	return (
 		<GlobalContext.Provider value={contextValues}>

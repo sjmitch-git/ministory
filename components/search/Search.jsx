@@ -1,4 +1,4 @@
-import { useState, useContext, useRef } from 'react'
+import { useState, useContext, useRef, useEffect, memo } from 'react'
 
 import { scrollTo } from '@smitch/js-lib'
 
@@ -14,15 +14,24 @@ const Search = () => {
 	const [selectGenre, setselectGenre] = useState('')
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState(false)
-	const { setResults } = useContext(GlobalContext)
+	const { results, setResults } = useContext(GlobalContext)
 	const inputElement = useRef()
 	const selectGenreElement = useRef()
 	const { genres } = GenresService
 	const submitLabel = 'Create!'
 	const placeholder = 'Enter a topic for your story'
 
+	useEffect(() => {
+		if (queryInput) onSubmit()
+	}, [selectGenre])
+
+	useEffect(() => {
+		if (results[0]) setResults([])
+		return () => setResults([])
+	}, [])
+
 	async function onSubmit(event) {
-		event.preventDefault()
+		if (event) event.preventDefault()
 		setError(false)
 		setLoading(true)
 		inputElement.current.blur()
@@ -53,7 +62,6 @@ const Search = () => {
 
 			setResults([{ data: data.result, label: queryInput, genre: selectGenre }])
 			ga.sendevent('Query Search', { data: data.result, label: queryInput })
-			//setQueryInput('')
 			setLoading(false)
 			setTimeout(() => {
 				scrollTo('results')
@@ -105,8 +113,8 @@ const Search = () => {
 				</div>
 				<button
 					type='submit'
-					disabled={!queryInput.length || !selectGenre.length}
-					hidden={!queryInput.length || !selectGenre.length}
+					disabled={!queryInput.length || !selectGenreElement.current.value || loading}
+					hidden={!queryInput.length || !selectGenreElement.current.value}
 					data-testid='button'
 					className='mt-2 w-full rounded bg-purple-600 p-3 text-center text-xl uppercase text-white disabled:bg-slate-400'>
 					{loading ? (
