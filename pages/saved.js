@@ -23,15 +23,15 @@ export default function Saved() {
 
 	const onPageChange = (page) => {
 		setCurrentPage(page)
+		ga.sendevent('Pagination', { page: page })
 		scrollTo('list')
-		console.log(page)
 	}
 
 	const pageSize = 6
 
 	useEffect(() => {
 		setSaved(JSON.parse(window.localStorage.getItem('ms.saved')).reverse())
-	}, [])
+	}, [setSaved])
 
 	const removeFromStorage = (date) => {
 		let filtered = saved.filter(function (el) {
@@ -39,6 +39,7 @@ export default function Saved() {
 		})
 		window.localStorage.setItem('ms.saved', JSON.stringify(filtered.reverse()))
 		setSaved(filtered.reverse())
+		ga.sendevent('Remove Story', { date: date })
 	}
 
 	return (

@@ -2,7 +2,11 @@ import Link from 'next/link'
 
 import { formatDate } from '@smitch/js-lib'
 
+import * as ga from '../../lib/ga'
+
 const Card = ({ label, data, genre, date, removeFromStorage }) => {
+	const sendEvent = () => ga.sendevent('Read', { label: label })
+
 	return (
 		<div className='relative mb-8 rounded-lg bg-white p-4 text-left shadow-lg'>
 			<h3 className='mb-4 text-3xl font-bold capitalize opacity-50'>{label}</h3>
@@ -20,6 +24,7 @@ const Card = ({ label, data, genre, date, removeFromStorage }) => {
 				</button>
 				<Link
 					href={`/${label}?data=${data}`}
+					onClick={sendEvent}
 					className='stretched-link'>
 					read
 				</Link>

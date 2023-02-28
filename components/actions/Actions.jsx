@@ -2,6 +2,8 @@ import { useState, useContext, useEffect } from 'react'
 
 import GlobalContext from '../../contexts/globalContext'
 
+import * as ga from '../../lib/ga'
+
 const Actions = () => {
 	const { results } = useContext(GlobalContext)
 	const [isSaved, setisSaved] = useState(false)
@@ -17,6 +19,7 @@ const Actions = () => {
 		saved.push(story)
 		window.localStorage.setItem('ms.saved', JSON.stringify(saved.reverse()))
 		setisSaved(true)
+		ga.sendevent('Save Story', { story: story.label })
 	}
 	return (
 		<>

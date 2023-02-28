@@ -23,12 +23,13 @@ const Search = () => {
 
 	useEffect(() => {
 		if (queryInput) onSubmit()
+		ga.sendevent('Select Genre', { genre: selectGenre })
 	}, [selectGenre])
 
 	useEffect(() => {
 		if (results[0]) setResults([])
 		return () => setResults([])
-	}, [])
+	}, [setResults])
 
 	async function onSubmit(event) {
 		if (event) event.preventDefault()
