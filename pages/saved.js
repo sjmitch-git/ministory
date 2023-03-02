@@ -45,8 +45,6 @@ export default function Saved() {
 		const pagesCount = Math.ceil(filtered.length / pageSize)
 
 		if (currentPage > pagesCount) {
-			console.log('change page to previous', pagesCount, currentPage)
-			console.log('filtered.length', filtered.length)
 			paginate(filtered, currentPage - 1, pageSize)
 			onPageChange(currentPage - 1)
 		}

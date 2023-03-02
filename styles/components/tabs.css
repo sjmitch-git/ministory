@@ -1,0 +1,23 @@
+@layer components {
+	.tabs {
+		@apply flex text-xl text-slate-500 md:text-2xl;
+	}
+
+	.tab {
+		@apply border-b-4 border-current p-4 font-bold uppercase;
+	}
+
+	.tab.active {
+		@apply border-accent bg-white;
+	}
+
+	.tab-link:hover {
+		@apply opacity-50;
+	}
+
+	.tab-link,
+	.tab-link:visited,
+	.tab-link.active:hover {
+		@apply text-current opacity-100;
+	}
+}

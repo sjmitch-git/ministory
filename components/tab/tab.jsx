@@ -12,10 +12,10 @@ const Tab = ({ href, label }) => {
 	}
 
 	return (
-		<li className='font-bold uppercase'>
+		<li className={`tab ${router.pathname == href ? 'active' : ''}`}>
 			<Link
 				href={href}
-				className={router.pathname == href ? 'active' : ''}
+				className={`tab-link ${router.pathname == href ? 'active' : ''}`}
 				onClick={() => sendEvent(label)}>
 				{label}
 			</Link>

@@ -8,10 +8,14 @@ This is a Micro Story generator app. It uses the [Next.js](https://nextjs.org/) 
 
 2. Clone this repository
 
+    ```bash
+    git clone https://github.com/sjmitch-git/ministory.git
+    ```
+
 3. Navigate into the project directory
 
     ```bash
-    $ cd openai-quickstart-node
+    $ cd ministory
     ```
 
 4. Install the requirements
@@ -20,19 +24,7 @@ This is a Micro Story generator app. It uses the [Next.js](https://nextjs.org/) 
     $ npm install
     ```
 
-5. Make a copy of the example environment variables file
-
-    On Linux systems:
-
-    ```bash
-    $ cp .env.example .env
-    ```
-
-    On Windows:
-
-    ```powershell
-    $ copy .env.example .env
-    ```
+5. Create an environment variables file: `.env`
 
 6. Add your [API key](https://beta.openai.com/account/api-keys) to the newly created `.env` file
 

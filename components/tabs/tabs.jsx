@@ -5,7 +5,7 @@ const Tabs = () => {
 	const { siteLinks } = config
 
 	return (
-		<ul className='flex gap-4 text-2xl text-slate-500'>
+		<ul className='tabs'>
 			{siteLinks.map((item, index) => (
 				<Tab
 					href={item.href}

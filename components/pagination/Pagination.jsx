@@ -1,6 +1,6 @@
 const Pagination = ({ items, pageSize, currentPage, onPageChange }) => {
 	const pagesCount = Math.ceil(items / pageSize)
-	console.log(pagesCount)
+
 	if (pagesCount < 2) return null
 
 	const pages = Array.from({ length: pagesCount }, (_, i) => i + 1)

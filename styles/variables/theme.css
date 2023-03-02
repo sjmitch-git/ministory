@@ -1,0 +1,18 @@
+@layer base {
+	:root {
+		--primary-color: var(--deep-purple);
+		--secondary-color: var(--purple);
+		--tertiary-color: var(--pink);
+		--accent-color: var(--pink);
+		--neutral-color: var(--blue-grey);
+		--dark-color: var(--dark-grey);
+
+		--info-color: #2563eb;
+		--success-color: #059669;
+		--warning-color: #f59e0b;
+		--error-color: #c51162;
+
+		/* font families */
+		/* --font-brand: var(--font-block); */
+	}
+}
