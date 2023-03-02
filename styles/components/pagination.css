@@ -1,0 +1,25 @@
+@layer components {
+	.pagination {
+		@apply text-center;
+	}
+
+	.pagination-info {
+		@apply mb-4 font-bold;
+	}
+
+	.pagination-ul {
+		@apply flex justify-between text-xl;
+	}
+
+	.pagination-btn {
+		@apply all-small-caps py-2 px-4 font-bold;
+	}
+
+	.pagination-btn:disabled {
+		@apply opacity-50;
+	}
+
+	.select {
+		@apply mx-2 cursor-pointer rounded bg-primary p-2 text-xl text-slate-100 focus:border-cyan-500 focus:outline-none;
+	}
+}

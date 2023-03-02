@@ -26,7 +26,9 @@ export default function Saved() {
 	const onPageChange = (page) => {
 		setCurrentPage(page)
 		ga.sendevent('Pagination', { page: page })
-		scrollTo('list')
+		setTimeout(() => {
+			scrollTo('list')
+		}, 800)
 	}
 
 	const pageSize = 6
@@ -39,8 +41,8 @@ export default function Saved() {
 		let filtered = saved.filter(function (el) {
 			return el.date !== date
 		})
-		window.localStorage.setItem('ms.saved', JSON.stringify(filtered.reverse()))
-		setSaved(filtered.reverse())
+		window.localStorage.setItem('ms.saved', JSON.stringify(filtered))
+		setSaved(filtered)
 		ga.sendevent('Remove Story', { date: date })
 		const pagesCount = Math.ceil(filtered.length / pageSize)
 

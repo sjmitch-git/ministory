@@ -14,6 +14,7 @@ module.exports = {
 				success: 'var(--success-color)',
 				warning: 'var(--warning-color)',
 				error: 'var(--error-color)',
+				danger: 'var(--error-color)',
 			},
 		},
 	},

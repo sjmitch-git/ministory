@@ -1,0 +1,15 @@
+::-webkit-scrollbar {
+	width: 0px;
+	height: 10px;
+	background-color: var(--dark-grey);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--grey);
+}
+
+@media screen and (min-width: 48em) {
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+}

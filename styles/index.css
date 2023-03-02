@@ -6,6 +6,6 @@
 @import './components/index.css';
 
 @import 'tailwindcss/utilities';
-/* @import './utilities/index.css'; */
+@import './utilities/index.css';
 
-/* @import './custom/index.css'; */
+@import './custom/index.css';

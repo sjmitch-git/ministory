@@ -17,16 +17,16 @@ const Card = ({ label, data, genre, date, removeFromStorage }) => {
 			</div>
 			<footer className='flex justify-between'>
 				<button
-					className='relative z-10 uppercase text-red-500'
+					className='all-small-caps relative z-10 font-bold text-danger'
 					onClick={() => removeFromStorage(date)}
-					title='Remove from saved list'>
-					remove
+					title='Remove from saved list?'>
+					Remove
 				</button>
 				<Link
 					href={`/${label}?data=${data}`}
 					onClick={sendEvent}
-					className='stretched-link uppercase'>
-					read
+					className='stretched-link all-small-caps font-bold'>
+					Read
 				</Link>
 			</footer>
 		</div>

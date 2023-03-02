@@ -1,0 +1,13 @@
+@layer utilities {
+	.small-caps {
+		font-variant-caps: small-caps;
+	}
+
+	.all-small-caps {
+		font-variant-caps: all-small-caps;
+	}
+
+	.no-caps {
+		font-variant-caps: initial;
+	}
+}
