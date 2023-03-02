@@ -16,8 +16,8 @@ const Actions = () => {
 		let story = results[0]
 		story.date = Date.now()
 		let saved = JSON.parse(window.localStorage.getItem('ms.saved')) || []
-		saved.push(story)
-		window.localStorage.setItem('ms.saved', JSON.stringify(saved.reverse()))
+		saved.unshift(story)
+		window.localStorage.setItem('ms.saved', JSON.stringify(saved))
 		setisSaved(true)
 		ga.sendevent('Save Story', { story: story.label })
 	}

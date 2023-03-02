@@ -18,7 +18,7 @@ const Header = () => {
 				alt='Brand image'
 			/>
 			<h3
-				className='font-mono text-2xl'
+				className='mb-8 font-mono text-2xl'
 				data-testid='name'>
 				{name}
 			</h3>

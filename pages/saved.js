@@ -8,6 +8,8 @@ import Card from '../components/card'
 import GlobalContext from '../contexts/globalContext'
 import { scrollTo } from '@smitch/js-lib'
 
+import * as ga from '../lib/ga'
+
 export default function Saved() {
 	const title = 'Saved'
 	const { keywords, name, image, description } = config.siteMetadata
@@ -30,7 +32,7 @@ export default function Saved() {
 	const pageSize = 6
 
 	useEffect(() => {
-		setSaved(JSON.parse(window.localStorage.getItem('ms.saved')).reverse())
+		setSaved(JSON.parse(window.localStorage.getItem('ms.saved')) || [])
 	}, [setSaved])
 
 	const removeFromStorage = (date) => {
@@ -40,6 +42,14 @@ export default function Saved() {
 		window.localStorage.setItem('ms.saved', JSON.stringify(filtered.reverse()))
 		setSaved(filtered.reverse())
 		ga.sendevent('Remove Story', { date: date })
+		const pagesCount = Math.ceil(filtered.length / pageSize)
+
+		if (currentPage > pagesCount) {
+			console.log('change page to previous', pagesCount, currentPage)
+			console.log('filtered.length', filtered.length)
+			paginate(filtered, currentPage - 1, pageSize)
+			onPageChange(currentPage - 1)
+		}
 	}
 
 	return (
@@ -56,7 +66,7 @@ export default function Saved() {
 				<Pagetitle title={title} />
 				{/* <p>{description}</p> */}
 				<div
-					className='max-w-2xl'
+					className='max-w-[92vw] md:max-w-2xl'
 					id='saved'>
 					{saved &&
 						paginate(saved, currentPage, pageSize).map((item, index) => (

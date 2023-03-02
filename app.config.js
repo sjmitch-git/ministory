@@ -18,7 +18,16 @@ const config = {
 		siteLanguage: `en`,
 		keywords: ['OpenAI', 'Story Generator', 'AI Technology', 'TailwindCSS', 'jsx', 'Next.js', 'ReactJS', 'Jest'],
 	},
-	siteLinks: [],
+	siteLinks: [
+		{
+			href: '/',
+			label: 'Create',
+		},
+		{
+			href: '/saved',
+			label: 'Saved',
+		},
+	],
 	manifest_options: {
 		name: `${title} - ${description}`,
 		short_name: title,

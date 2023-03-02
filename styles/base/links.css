@@ -12,7 +12,7 @@ a:hover {
 
 a:active,
 a.active {
-	@apply cursor-default;
+	@apply cursor-default decoration-pink-500;
 }
 
 a.stretched-link:after {
