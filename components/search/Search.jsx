@@ -19,7 +19,7 @@ const Search = () => {
 	const selectGenreElement = useRef()
 	const { genres } = GenresService
 	const submitLabel = 'Create!'
-	const placeholder = 'Enter a topic for your story'
+	const placeholder = 'Enter a topic or title'
 
 	useEffect(() => {
 		if (queryInput) onSubmit()
@@ -36,6 +36,7 @@ const Search = () => {
 		setError(false)
 		setLoading(true)
 		inputElement.current.blur()
+		selectGenreElement.current.blur()
 
 		try {
 			const response = await fetch('/api/generate', {
@@ -83,12 +84,12 @@ const Search = () => {
 			<form
 				id='searchform'
 				onSubmit={onSubmit}
-				className='mb-16 flex flex-col items-center rounded bg-slate-300 p-2'>
+				className='form'>
 				<div className='grid'>
 					<input
 						type='text'
 						name='query'
-						className='rounded border border-purple-500 bg-white p-2 text-xl focus:border-cyan-500 focus:outline-none md:w-96'
+						className='form-input'
 						placeholder={placeholder}
 						value={queryInput}
 						autoComplete='off'
@@ -98,8 +99,9 @@ const Search = () => {
 						onChange={(e) => setQueryInput(e.target.value)}
 					/>
 					<select
-						className='mt-2 rounded border border-purple-500 bg-white p-2 text-xl focus:border-cyan-500 focus:outline-none'
+						className='form-select mt-2'
 						ref={selectGenreElement}
+						hidden={!queryInput.length}
 						onChange={(e) => setselectGenre(e.target.value)}>
 						<option value=''>Select Genre</option>
 						{genres &&
@@ -117,7 +119,7 @@ const Search = () => {
 					disabled={!queryInput.length || !selectGenreElement.current.value || loading}
 					hidden={!queryInput.length || !selectGenreElement.current.value}
 					data-testid='button'
-					className='mt-2 w-full rounded bg-purple-600 p-3 text-center text-xl uppercase text-white disabled:bg-slate-400'>
+					className='btn-primary mt-2 w-full'>
 					{loading ? (
 						<div className='mx-auto w-[28px]'>
 							<Loading />

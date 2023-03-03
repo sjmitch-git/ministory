@@ -1,7 +1,7 @@
 @layer base {
 	:root {
-		--primary-color: var(--deep-purple);
-		--secondary-color: var(--purple);
+		--primary-color: var(--purple);
+		--secondary-color: var(--deep-purple);
 		--tertiary-color: var(--pink);
 		--accent-color: var(--pink);
 		--neutral-color: var(--blue-grey);

@@ -10,7 +10,7 @@ const Card = ({ label, data, genre, date, removeFromStorage }) => {
 	return (
 		<div className='relative mb-8 rounded-lg bg-white p-2 text-left shadow-lg md:p-4'>
 			<h3 className='mb-2 text-2xl font-bold capitalize opacity-50 md:mb-4 md:text-3xl'>{label}</h3>
-			<p className='mb-4 truncate md:text-2xl'>{data}</p>
+			<p className='mb-4 truncate md:text-xl'>{data}</p>
 			<div className='mb-4 flex justify-between'>
 				<p>#{camelCase(genre)}</p>
 				<p className='text-right'>{formatDate(date, 'en-GB', 'dd/mm/yy')}</p>

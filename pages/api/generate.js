@@ -32,7 +32,7 @@ export default async function generate(req, res) {
 			model: 'text-davinci-003',
 			prompt: generatePrompt(query, genre),
 			temperature: 0.8,
-			max_tokens: 100,
+			max_tokens: 150,
 			top_p: 1.0,
 			frequency_penalty: 0.5,
 			presence_penalty: 0.0,
@@ -53,5 +53,5 @@ export default async function generate(req, res) {
 
 function generatePrompt(query, genre) {
 	return `Topic: ${query}
-One-Paragraph ${genre} Story:`
+A One Paragraph ${genre} Story:`
 }

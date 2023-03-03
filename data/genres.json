@@ -2,6 +2,7 @@
 	{ "value": "adventure", "label": "Adventure" },
 	{ "value": "crime", "label": "Crime" },
 	{ "value": "comedy", "label": "Comedy" },
+	{ "value": "fable", "label": "Fable" },
 	{ "value": "fantasy", "label": "Fantasy" },
 	{ "value": "historical fiction", "label": "Historical" },
 	{ "value": "horror", "label": "Horror" },
