@@ -19,7 +19,10 @@ const Post = ({ query }) => {
 			<div className='flex flex-col items-center'>
 				<Pagetitle title={id} />
 				<Story data={data} />
-				<Share id={id} />
+				<Share
+					id={id}
+					data={data}
+				/>
 			</div>
 		</>
 	)
