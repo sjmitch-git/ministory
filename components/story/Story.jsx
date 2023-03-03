@@ -1,4 +1,4 @@
-const Story = ({ label, data, genre, date }) => {
+const Story = ({ label, data }) => {
 	return (
 		<article className='max-w-3xl px-2 md:px-4 '>
 			{label && <p className='py-6 text-3xl font-bold uppercase tracking-wide opacity-60 md:text-4xl'>{label}</p>}

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { pascalCase } from '@smitch/js-lib'
 import config from '../../app.config'
 
 const SEO = ({ title, description, keywords, img }) => {
@@ -7,6 +8,8 @@ const SEO = ({ title, description, keywords, img }) => {
 	const router = useRouter()
 	const path = url + router.asPath
 	const imgSrc = url + img
+
+	title = pascalCase(title)
 
 	return (
 		<Head>

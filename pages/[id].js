@@ -1,5 +1,6 @@
 import SEO from '../components/seo'
 import Story from '../components/story'
+import Share from '../components/share'
 import config from '../app.config'
 import Pagetitle from '../components/pagetitle'
 
@@ -18,6 +19,7 @@ const Post = ({ query }) => {
 			<div className='flex flex-col items-center'>
 				<Pagetitle title={id} />
 				<Story data={data} />
+				<Share id={id} />
 			</div>
 		</>
 	)
