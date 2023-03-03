@@ -42,7 +42,7 @@ const Actions = () => {
 					{!link && (
 						<button
 							disabled={isSaved}
-							className='btn-primary mt-2'
+							className='btn-primary mt-2 w-20'
 							onClick={() => saveStory()}>
 							{loading ? (
 								<div className='mx-auto w-[28px]'>

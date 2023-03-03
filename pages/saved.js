@@ -17,8 +17,19 @@ export default function Saved() {
 	const { saved, setSaved } = useContext(GlobalContext)
 
 	const [currentPage, setCurrentPage] = useState(1)
+	const [filter, setFilter] = useState()
+	const [filteredItems, setFilteredItems] = useState()
+
+	const pageSize = 6
+
+	const filterByGenre = () => {
+		return saved.filter(function (el) {
+			return el.genre === filter
+		})
+	}
 
 	const paginate = (items, pageNumber, pageSize) => {
+		if (filter) items = filteredItems
 		const startIndex = (pageNumber - 1) * pageSize
 		return items.slice(startIndex, startIndex + pageSize)
 	}
@@ -31,7 +42,10 @@ export default function Saved() {
 		}, 800)
 	}
 
-	const pageSize = 6
+	useEffect(() => {
+		onPageChange(1)
+		setFilteredItems(filterByGenre())
+	}, [filter])
 
 	useEffect(() => {
 		setSaved(JSON.parse(window.localStorage.getItem('ms.saved')) || [])
@@ -52,6 +66,10 @@ export default function Saved() {
 		}
 	}
 
+	const getItemsLength = () => {
+		return filteredItems?.length || saved.length
+	}
+
 	return (
 		<>
 			<SEO
@@ -64,7 +82,16 @@ export default function Saved() {
 				className='flex flex-col items-center'
 				id='list'>
 				<Pagetitle title={title} />
-				{/* <p>{description}</p> */}
+				{filter && (
+					<p className='mb-8'>
+						Filtering by <strong className='uppercase'>{filter}</strong>.{' '}
+						<button
+							className='ml-2 font-bold text-info'
+							onClick={() => setFilter('')}>
+							Clear filter
+						</button>
+					</p>
+				)}
 				<div
 					className='max-w-[92vw] md:max-w-2xl'
 					id='saved'>
@@ -76,12 +103,13 @@ export default function Saved() {
 								genre={item.genre}
 								date={item.date}
 								key={index}
+								setFilter={setFilter}
 								removeFromStorage={removeFromStorage}
 							/>
 						))}
 				</div>
 				<Pagination
-					items={saved.length}
+					items={getItemsLength()}
 					currentPage={currentPage}
 					pageSize={pageSize}
 					onPageChange={onPageChange}
