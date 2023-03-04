@@ -1,8 +1,12 @@
 import { render, screen } from '@testing-library/react'
+import * as nextRouter from 'next/router'
 import Header from './Header.jsx'
 import config from '../../app.config'
 
 const { name } = config.siteMetadata
+
+nextRouter.useRouter = jest.fn()
+nextRouter.useRouter.mockImplementation(() => ({ route: '/' }))
 
 describe('Header tests', () => {
 	beforeEach(() => {

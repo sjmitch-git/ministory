@@ -1,5 +1,9 @@
 import { render, screen } from '@testing-library/react'
+import * as nextRouter from 'next/router'
 import Layout from './Layout.jsx'
+
+nextRouter.useRouter = jest.fn()
+nextRouter.useRouter.mockImplementation(() => ({ route: '/' }))
 
 describe('Layout tests', () => {
 	let layout

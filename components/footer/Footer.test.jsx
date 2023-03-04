@@ -1,8 +1,12 @@
 import { render, screen } from '@testing-library/react'
+import * as nextRouter from 'next/router'
 import Footer from './Footer.jsx'
 import config from '../../app.config'
 
 const { author, description, authorUrl } = config.siteMetadata
+
+nextRouter.useRouter = jest.fn()
+nextRouter.useRouter.mockImplementation(() => ({ route: '/' }))
 
 describe('Footer tests', () => {
 	beforeEach(() => {

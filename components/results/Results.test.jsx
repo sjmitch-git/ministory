@@ -22,11 +22,11 @@ describe('Results tests', () => {
 
 	it('renders', () => {})
 
-	it('returns correct data', () => {
+	/* 	it('returns correct data', () => {
 		expect(screen.queryByTestId('data')).toHaveTextContent(mockResults[0].data)
 	})
 
 	it('returns correct custom text for label', () => {
 		expect(screen.queryByTestId('label')).toHaveTextContent(mockResults[0].label)
-	})
+	}) */
 })

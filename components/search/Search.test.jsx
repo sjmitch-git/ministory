@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import Search from './Search.jsx'
 
-const placeholder = 'Enter a movie title'
+const placeholder = 'Enter a topic or title'
 
 describe('Search tests', () => {
 	beforeEach(() => {
