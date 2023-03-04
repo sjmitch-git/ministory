@@ -18,6 +18,6 @@
 	.tab-link,
 	.tab-link:visited,
 	.tab-link.active:hover {
-		@apply text-current opacity-100;
+		@apply !text-current opacity-100;
 	}
 }
